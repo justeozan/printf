@@ -10,28 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 
-
-void	ft_putchar(char c)
+int	ft_printchar(int c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
-void	ft_putstr(char *s)
+int	ft_printstr(char *s)
 {
 	int	i;
 
 	i = -1;
 	while (s[++i])
-		ft_putchar(s[i]);
+		ft_printchar(s[i]);
+	return (i);
 }
 
-void	ft_print_ptr(void	*ptr)
-{
+// void	ft_print_ptr(void	*ptr)
+// {
 
-}
+// }
 
-void	ft_putnbr_base(int nbr, int base)
-{
+// void	ft_putnbr_base(int nbr, int base)
+// {
 
-}
+// }

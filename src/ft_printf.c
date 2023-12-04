@@ -12,47 +12,62 @@
 
 //#include "libft.h"
 //#include "ft_printf.h"
+#include "ft_prints.c"
 #include <stdarg.h>
 
-void	find_format(char c)
+
+int	len_print_arg(char c, va_list arg)
 {
+	int	len;
+
+	len = 0;
 	if (c == 'c')
-		ft_putchar();
+		len += ft_printchar(va_arg(arg, int));
 	else if (c == 's')
-		ft_putstr();
-	else if (c == 'p')
-		ft_print_ptr();
-	else if (c == 'd')
-		ft_putnbr_base( , 10);
-	else if (c == 'i')
-		ft_putnbr_base( , 10);
-	else if (c == 'u')
-		ft_putnbr_base( , 10);
-	else if (c == 'x')
-		ft_putnbr_base( , 16);
-	else if (c == 'X')
-		ft_putnbr_base( , 16);
-	else if (c == '%')
-		return (0);
-	else
-		return (0);
+		len += ft_printstr(va_arg(arg, char *));
+	// else if (c == 'p')
+	// 	len += ft_printptr();
+	// else if (c == 'd')
+	// 	len += ft_putnbr_base( , 10);
+	// else if (c == 'i')
+	// 	len += ft_putnbr_base( , 10);
+	// else if (c == 'u')
+	// 	len += ft_putnbr_base( , 10);
+	// else if (c == 'x')
+	// 	len += ft_putnbr_base( , 16);
+	// else if (c == 'X')
+	// 	len += ft_putnbr_base( , 16);
+	// else if (c == '%')
+	// 	return (0);
+	// else
+	// 	return (0);
+	return (len);
 }
 
 int	ft_printf(const char *entry, ...)
 {
-	int	i;
-	int	value;
+	int		i;
+	int		j;
+	int		len;
+	va_list	args;
 
 	i = -1;
-	value = 0;
+	j = 0;
+	va_start(args, entry);
 	while (entry[++i])
 	{
 		if (entry[i] == '%')
 		{
-			print_to_format(entry[i + 1]);
+			len += len_print_arg(entry[i + 1], args);
+			i++;
+		}
+		else
+		{
+			ft_printchar(entry[i]);
+			len++;
 		}
 	}
-	return (value);
+	return (len);
 }
 
 #include <stdio.h>
@@ -61,6 +76,6 @@ int main()
 {
 	char	*str = "nop";
 	int value = ft_printf("le poil %s au feu", str);
-	printf("%d\n", value);
+	printf("\n%d\n", value);
 	return (0);
 }
