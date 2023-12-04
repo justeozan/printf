@@ -75,7 +75,8 @@ int	ft_printf(const char *entry, ...)
 int main()
 {
 	char	*str = "nop";
-	int value = ft_printf("le poil %s au feu", str);
+	char	chr = 'x';
+	int value = ft_printf("le poil %s au%c feu", str, chr);
 	printf("\n%d\n", value);
 	return (0);
 }
