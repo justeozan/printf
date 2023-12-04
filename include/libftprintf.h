@@ -10,3 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
+
+# include <unistd.h>
+
+int	ft_printchar(int c);
+int	ft_printstr(char *s);
+
+#endif
