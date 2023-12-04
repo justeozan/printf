@@ -16,7 +16,6 @@
 
 void	find_format(char c)
 {
-
 	if (c == 'c')
 		ft_putchar();
 	else if (c == 's')
@@ -24,11 +23,11 @@ void	find_format(char c)
 	else if (c == 'p')
 		ft_print_ptr();
 	else if (c == 'd')
-		ft_putnbr()
+		ft_putnbr_base( , 10);
 	else if (c == 'i')
 		ft_putnbr_base( , 10);
 	else if (c == 'u')
-		ft_putnbr();
+		ft_putnbr_base( , 10);
 	else if (c == 'x')
 		ft_putnbr_base( , 16);
 	else if (c == 'X')
