@@ -16,10 +16,10 @@ NAME	=	libftprintf.a
 
 
 # INCLUDES	=	include
-SRCS		=	src/ft_printf.c \
-				src/ft_prints.c \
+SRCS		=	src/ft_printf.c src/ft_prints.c \
+				
 
-OBJS		=	$(SCRS:.c=.o)
+OBJS		=	$(SRCS:.c=.o)
 
 CC		=	gcc
 
@@ -29,17 +29,24 @@ RM			=	rm -f
 
 AR			=	ar rc
 
-all:		$(NAME)
+
+
+%.o:	%.c ft_printf.h
+		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME)	:	$(OBJS)
-			@$(AR) $(NAME) $(OBJS)
+			$(AR) $(NAME) $(OBJS)
+
+all:		$(NAME)
+
+
 
 #Commands
 
 clean:
-			@$(RM) $(OBJS)
+			$(RM) $(OBJS)
 
 fclean:		clean
-			@$(RM) $(NAME)
+			$(RM) $(NAME)
 
 re:			fclean all

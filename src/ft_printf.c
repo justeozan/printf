@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-int	len_print_arg(char c, va_list arg)
+int	len_print_arg(char c, va_list arg, int	*octet)
 {
 	int	len;
 
@@ -43,18 +43,17 @@ int	len_print_arg(char c, va_list arg)
 int	ft_printf(const char *entry, ...)
 {
 	int		i;
-	int		j;
+	// int		j;
 	int		len;
 	va_list	args;
 
-	i = -1;
-	j = 0;
+	i = 0;
 	va_start(args, entry);
-	while (entry[++i])
+	while (entry[i])
 	{
 		if (entry[i] == '%')
 		{
-			len += len_print_arg(entry[i + 1], args);
+			len_print_arg(entry[i + 1], args, &len);
 			i++;
 		}
 		else
@@ -62,6 +61,7 @@ int	ft_printf(const char *entry, ...)
 			ft_printchar(entry[i]);
 			len++;
 		}
+		i++;
 	}
 	return (len);
 }
