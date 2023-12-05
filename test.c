@@ -1,21 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: justo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 19:25:07 by justo             #+#    #+#             */
-/*   Updated: 2023/12/04 19:25:07 by justo            ###   ########.fr       */
+/*   Created: 2023/12/03 18:47:08 by justo             #+#    #+#             */
+/*   Updated: 2023/12/03 18:47:08 by justo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+// #include <stdio.h>
+#include "ft_printf.h"
 
-# include <unistd.h>
 
-int	ft_printchar(int c);
-int	ft_printstr(char *s);
+int	main(int ac, char **av)
+{
+	int	i;
 
-#endif
+	i = 0;
+
+	if (ac > 1)
+	{
+		// while (av[1][i])
+		// {
+		// 	printf("%c", av[1][i]);
+		// 	i++;
+		// }
+		// printf("\n");
+		i = 0;
+		while (av[1][i])
+		{
+			ft_printf("%c", av[1][i]);
+			i++;
+		}
+		ft_printf("\n");
+	}
+	return (0);
+}

@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-//#include "ft_printf.h"
-#include "ft_prints.c"
-#include <stdarg.h>
-
+#include "ft_printf.h"
 
 int	len_print_arg(char c, va_list arg)
 {
@@ -70,13 +66,13 @@ int	ft_printf(const char *entry, ...)
 	return (len);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main()
-{
-	char	*str = "nop";
-	char	chr = 'x';
-	int value = ft_printf("le poil %s au%c feu", str, chr);
-	printf("\n%d\n", value);
-	return (0);
-}
+// int main()
+// {
+// 	char	*str = "nop";
+// 	char	chr = 'x';
+// 	int value = ft_printf("le poil %s au%c feu", str, chr);
+// 	printf("\n%d\n", value);
+// 	return (0);
+// }

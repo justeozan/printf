@@ -13,25 +13,33 @@
 #Variables
 
 NAME	=	libftprintf.a
+
+
+# INCLUDES	=	include
+SRCS		=	src/ft_printf.c \
+				src/ft_prints.c \
+
+OBJS		=	$(SCRS:.c=.o)
+
 CC		=	gcc
-CFLAGS		=	-Wall -Wextra -Werror -I
+
+CFLAGS		=	-Wall -Wextra -Werror
+
 RM			=	rm -f
-AR			=	ar rcs
 
-#Colors
+AR			=	ar rc
 
-DEF_COLOR = \033[0;39m
-GRAY = \033[0;90m
-RED = \033[0;91m
-GREEN = \033[0;92m
-YELLOW = \033[0;93m
-BLUE = \033[0;94m
-MAGENTA = \033[0;95m
-CYAN = \033[0;96m
-WHITE = \033[0;97m
+all:		$(NAME)
 
-#Link
+$(NAME)	:	$(OBJS)
+			@$(AR) $(NAME) $(OBJS)
 
-INCLUDES	=	include
-SRC_DIR		=	src/
-OBJ_DIR		=	obj/
+#Commands
+
+clean:
+			@$(RM) $(OBJS)
+
+fclean:		clean
+			@$(RM) $(NAME)
+
+re:			fclean all

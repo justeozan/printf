@@ -31,7 +31,7 @@ CYAN = \033[0;96m
 WHITE = \033[0;97m
 
 
-#Link
+#Links & Sources
 
 INCLUDES	=	../include
 SRCS_DIR	=	src/
