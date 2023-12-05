@@ -12,28 +12,66 @@
 
 #include "../ft_printf.h"
 
-int	ft_printchar(int c)
+void	ft_printchar(int c, int	*octet)
 {
 	write(1, &c, 1);
-	return (1);
+	(*octet)++;
 }
 
-int	ft_printstr(char *s)
+void	ft_printstr(char *s, int *octet)
 {
 	int	i;
 
-	i = -1;
-	while (s[++i])
-		ft_printchar(s[i]);
-	return (i);
+	i = 0;
+	while (s[i])
+	{
+		ft_printchar(s[i], octet);
+		i++;
+	}
 }
 
-// void	ft_print_ptr(void	*ptr)
+// void	ft_print_ptr() //pointeur %p
 // {
 
 // }
 
-// void	ft_putnbr_base(int nbr, int base)
-// {
+void	ft_printnbr(int nb, int *octet)
+{
+	if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		(*octet) += 11;
+	}
+	else if (nb < 0)
+	{
+		nb = -nb;
+		write(1, "-", 1);
+		(*octet)++;
+		ft_putnbr(nb);
+	}
+	else if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else if (nb <= 9 && nb >= 0)
+	{
+		nb += 48;
+		write(1, &nb, 1);
+		(*octet)++;
+	}
+}
 
-// }
+void	ft_print_hexa_lower(int nb, int	*octet)
+{
+	if (nb > 15)
+		print_hexa_upper(nb / 16, octet);
+	ft_printchar("0123456789abcdef"[nb%16], octet);
+}
+
+void	ft_print_hexa_upper(int nb, int	*octet)
+{
+	if (nb > 15)
+		print_hexa_upper(nb / 16, octet);
+	ft_printchar("0123456789ABCDEF"[nb%16], octet);
+}

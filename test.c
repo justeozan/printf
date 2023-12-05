@@ -12,29 +12,14 @@
 
 // #include <stdio.h>
 #include "ft_printf.h"
+#include <stdio.h>
 
-
-int	main(int ac, char **av)
+int main()
 {
-	int	i;
-
-	i = 0;
-
-	if (ac > 1)
-	{
-		// while (av[1][i])
-		// {
-		// 	printf("%c", av[1][i]);
-		// 	i++;
-		// }
-		// printf("\n");
-		i = 0;
-		while (av[1][i])
-		{
-			ft_printf("%c", av[1][i]);
-			i++;
-		}
-		ft_printf("\n");
-	}
+	char	*str = "nop";
+	char	chr = 'x';
+	int value = ft_printf("le poil %s au%c feu", str, chr);
+	printf("\nle poil %s au%c feu", str, chr);
+	printf("\n%d\n", value);
 	return (0);
 }

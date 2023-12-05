@@ -12,15 +12,12 @@
 
 #include "../ft_printf.h"
 
-int	len_print_arg(char c, va_list arg, int	*octet)
+void	len_print_arg(char c, va_list arg, int *octet)
 {
-	int	len;
-
-	len = 0;
 	if (c == 'c')
-		len += ft_printchar(va_arg(arg, int));
+		ft_printchar(va_arg(arg, int), octet);
 	else if (c == 's')
-		len += ft_printstr(va_arg(arg, char *));
+		ft_printstr(va_arg(arg, char *), octet);
 	// else if (c == 'p')
 	// 	len += ft_printptr();
 	// else if (c == 'd')
@@ -29,26 +26,25 @@ int	len_print_arg(char c, va_list arg, int	*octet)
 	// 	len += ft_putnbr_base( , 10);
 	// else if (c == 'u')
 	// 	len += ft_putnbr_base( , 10);
-	// else if (c == 'x')
-	// 	len += ft_putnbr_base( , 16);
-	// else if (c == 'X')
-	// 	len += ft_putnbr_base( , 16);
+	else if (c == 'x')
+		ft_print_hexa_lower(va_arg(arg, int), octet);
+	else if (c == 'X')
+		ft_print_hexa_upper(va_arg(arg, int), octet);
 	// else if (c == '%')
 	// 	return (0);
 	// else
 	// 	return (0);
-	return (len);
 }
 
 int	ft_printf(const char *entry, ...)
 {
 	int		i;
-	// int		j;
 	int		len;
 	va_list	args;
 
 	i = 0;
 	va_start(args, entry);
+	len = 0;
 	while (entry[i])
 	{
 		if (entry[i] == '%')
@@ -58,21 +54,9 @@ int	ft_printf(const char *entry, ...)
 		}
 		else
 		{
-			ft_printchar(entry[i]);
-			len++;
+			ft_printchar(entry[i], &len);
 		}
 		i++;
 	}
 	return (len);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-// 	char	*str = "nop";
-// 	char	chr = 'x';
-// 	int value = ft_printf("le poil %s au%c feu", str, chr);
-// 	printf("\n%d\n", value);
-// 	return (0);
-// }

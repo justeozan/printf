@@ -16,10 +16,13 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-int	ft_printf(const char *entry, ...);
-int	len_print_arg(char c, va_list arg, int	*octet);
+int		ft_printf(const char *entry, ...);
+void	len_print_arg(char c, va_list arg, int	*octet);
 
-int	ft_printchar(int c);
-int	ft_printstr(char *s);
+void	ft_printchar(int c, int	*octet);
+void	ft_printstr(char *s, int *octet);
+void	ft_printnbr(int nb, int *octet);
+void	ft_print_hexa_lower(int nb, int	*octet);
+void	ft_print_hexa_upper(int nb, int	*octet);
 
 #endif
