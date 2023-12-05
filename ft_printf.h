@@ -22,7 +22,7 @@ void	len_print_arg(char c, va_list arg, int	*octet);
 void	ft_printchar(int c, int	*octet);
 void	ft_printstr(char *s, int *octet);
 void	ft_printnbr(int nb, int *octet);
-void	ft_print_hexa_lower(int nb, int	*octet);
-void	ft_print_hexa_upper(int nb, int	*octet);
+void	ft_print_hexa_lower(unsigned int nb, int	*octet);
+void	ft_print_hexa_upper(unsigned int nb, int	*octet);
 
 #endif

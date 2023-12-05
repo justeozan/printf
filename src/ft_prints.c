@@ -47,12 +47,12 @@ void	ft_printnbr(int nb, int *octet)
 		nb = -nb;
 		write(1, "-", 1);
 		(*octet)++;
-		ft_putnbr(nb);
+		ft_printnbr(nb, octet);
 	}
 	else if (nb >= 10)
 	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
+		ft_printnbr(nb / 10, octet);
+		ft_printnbr(nb % 10, octet);
 	}
 	else if (nb <= 9 && nb >= 0)
 	{
@@ -62,16 +62,16 @@ void	ft_printnbr(int nb, int *octet)
 	}
 }
 
-void	ft_print_hexa_lower(int nb, int	*octet)
+void	ft_print_hexa_lower(unsigned int nb, int	*octet)
 {
 	if (nb > 15)
-		print_hexa_upper(nb / 16, octet);
+		ft_print_hexa_lower(nb / 16, octet);
 	ft_printchar("0123456789abcdef"[nb%16], octet);
 }
 
-void	ft_print_hexa_upper(int nb, int	*octet)
+void	ft_print_hexa_upper(unsigned int nb, int	*octet)
 {
 	if (nb > 15)
-		print_hexa_upper(nb / 16, octet);
+		ft_print_hexa_upper(nb / 16, octet);
 	ft_printchar("0123456789ABCDEF"[nb%16], octet);
 }

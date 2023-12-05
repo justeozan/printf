@@ -20,8 +20,8 @@ void	len_print_arg(char c, va_list arg, int *octet)
 		ft_printstr(va_arg(arg, char *), octet);
 	// else if (c == 'p')
 	// 	len += ft_printptr();
-	// else if (c == 'd')
-	// 	len += ft_putnbr_base( , 10);
+	else if (c == 'd')
+		ft_printnbr(va_arg(arg, int), octet);
 	// else if (c == 'i')
 	// 	len += ft_putnbr_base( , 10);
 	// else if (c == 'u')

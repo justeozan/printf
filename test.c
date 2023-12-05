@@ -16,10 +16,14 @@
 
 int main()
 {
-	char	*str = "nop";
-	char	chr = 'x';
-	int value = ft_printf("le poil %s au%c feu", str, chr);
-	printf("\nle poil %s au%c feu", str, chr);
+	char	*str = "-voici une chaine-";
+	char	chr = 'A';
+	int		nb = -26;
+	printf("\n===Mon printf===\n");
+	int value = ft_printf("- test d'un caractère : -%c- \n- test d'une chaine : %s \n- test d'un décimal : -%d- \n- test des hexa : -%x-  -%X-", chr, str, nb, nb, nb);
+	printf("\n%d\n", value);
+	printf("\n===Reel printf===\n");
+	value = printf("- test d'un caractère : -%c- \n- test d'une chaine : %s \n- test d'un décimal : -%d- \n- test des hexa : -%x-  -%X-", chr, str, nb, nb, nb);
 	printf("\n%d\n", value);
 	return (0);
 }
