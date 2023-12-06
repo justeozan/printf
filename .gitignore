@@ -1,5 +1,6 @@
 # System files
 .DS_Store
+.vscode
 
 # Object files
 *.o
@@ -19,3 +20,6 @@
 
 # Exe program
 *.exe
+
+# Test files
+%test%.c
