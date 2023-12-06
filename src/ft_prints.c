@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_prints.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: justo <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: ozasahin <ozasahin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:11:52 by justo             #+#    #+#             */
-/*   Updated: 2023/12/04 17:11:52 by justo            ###   ########.fr       */
+/*   Updated: 2023/12/06 14:21:26 by ozasahin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,21 @@ void	ft_printnbr(int nb, int *octet)
 		ft_printnbr(nb % 10, octet);
 	}
 	else if (nb <= 9 && nb >= 0)
+	{
+		nb += 48;
+		write(1, &nb, 1);
+		(*octet)++;
+	}
+}
+
+void	ft_print_unbr(unsigned int nb, int *octet)
+{
+	if (nb >= 10)
+	{
+		ft_print_unbr(nb / 10, octet);
+		ft_print_unbr(nb % 10, octet);
+	}
+	else if (nb <= 9)
 	{
 		nb += 48;
 		write(1, &nb, 1);
