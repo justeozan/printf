@@ -6,7 +6,7 @@
 /*   By: ozasahin <ozasahin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 19:25:07 by justo             #+#    #+#             */
-/*   Updated: 2023/12/06 15:14:43 by ozasahin         ###   ########.fr       */
+/*   Updated: 2023/12/06 16:01:54 by ozasahin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@
 # include <unistd.h>
 
 int		ft_printf(const char *entry, ...);
-void	len_print_arg(char c, va_list arg, int	*octet);
+void	len_print_arg(char c, va_list arg, size_t	*octet);
 
-void	ft_print_char(int c, int	*octet);
-void	ft_print_str(char *s, int *octet);
-void	ft_print_nbr(int nb, int *octet);
-void	ft_print_ptr(void *addr, int *octet);
-void	ft_print_unbr(unsigned int nb, int *octet);
-void	ft_print_hexa(unsigned int nb, char *base, int	*octet);
-// void	ft_print_hexa_upper(unsigned int nb, int	*octet);
+void	ft_print_char(int c, size_t	*octet);
+void	ft_print_str(char *s, size_t *octet);
+void	ft_print_nbr(int nb, size_t *octet);
+void	ft_print_ptr(unsigned long long addr, size_t *octet);
+void	ft_print_unbr(unsigned int nb, size_t *octet);
+void	ft_print_hexa(unsigned int nb, char *base, size_t	*octet);
 
 #endif

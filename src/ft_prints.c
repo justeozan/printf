@@ -6,19 +6,19 @@
 /*   By: ozasahin <ozasahin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:11:52 by justo             #+#    #+#             */
-/*   Updated: 2023/12/06 15:21:26 by ozasahin         ###   ########.fr       */
+/*   Updated: 2023/12/06 16:02:40 by ozasahin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_print_char(int c, int	*octet)
+void	ft_print_char(int c, size_t *octet)
 {
 	write(1, &c, 1);
 	(*octet)++;
 }
 
-void	ft_print_str(char *s, int *octet)
+void	ft_print_str(char *s, size_t *octet)
 {
 	int	i;
 
@@ -30,33 +30,36 @@ void	ft_print_str(char *s, int *octet)
 	}
 }
 
-void	ft_print_ptr(void *addr, int *octet) //-----------------------------
+void	ft_print_ptr(unsigned long long addr, size_t *octet) //-----------------------------
 {
 	char	stack[17];
 	int		i;
-	unsigned long long	address;
 	
-	address = (unsigned long long)addr;
-	i = 0;
-	while (i < 16)
+	if (addr)
 	{
-		stack[i] = "0123456789abcdef"[address % 16];
-		i++;
-		address /= 16;
+		i = 0;
+		while (i < 16)
+		{
+			stack[i] = "0123456789abcdef"[addr % 16];
+			i++;
+			addr /= 16;
+		}
+		stack[i] = '\0';
+		i = 15;
+		while (stack[i] == '0')
+			i--;
+		ft_print_str("0x", octet);
+		while (i >= 0)
+		{
+			ft_print_char(stack[i], octet);
+			i--;
+		}
 	}
-	stack[i] = '\0';
-	i = 15;
-	while (stack[i] == '0')
-		i--;
-	ft_print_str("0x", octet);
-	while (i >= 0)
-	{
-		ft_print_char(stack[i], octet);
-		i--;
-	}
+	else
+		ft_print_str("(nil)", octet);
 }
 
-void	ft_print_nbr(int nb, int *octet)
+void	ft_print_nbr(int nb, size_t *octet)
 {
 	if (nb == -2147483648)
 	{
@@ -83,7 +86,7 @@ void	ft_print_nbr(int nb, int *octet)
 	}
 }
 
-void	ft_print_unbr(unsigned int nb, int *octet)
+void	ft_print_unbr(unsigned int nb, size_t *octet)
 {
 	if (nb >= 10)
 	{
@@ -98,7 +101,7 @@ void	ft_print_unbr(unsigned int nb, int *octet)
 	}
 }
 
-void	ft_print_hexa(unsigned int nb, char *base, int	*octet)
+void	ft_print_hexa(unsigned int nb, char *base, size_t	*octet)
 {
 	if (nb > 15)
 		ft_print_hexa(nb / 16, base, octet);

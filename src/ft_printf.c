@@ -6,20 +6,20 @@
 /*   By: ozasahin <ozasahin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:08:29 by justo             #+#    #+#             */
-/*   Updated: 2023/12/06 15:10:55 by ozasahin         ###   ########.fr       */
+/*   Updated: 2023/12/06 16:00:47 by ozasahin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	len_print_arg(char c, va_list arg, int *octet)
+void	len_print_arg(char c, va_list arg, size_t *octet)
 {
 	if (c == 'c')
 		ft_print_char(va_arg(arg, int), octet);
 	else if (c == 's')
 		ft_print_str(va_arg(arg, char *), octet);
 	else if (c == 'p')
-		ft_print_ptr(va_arg(arg, void *), octet);
+		ft_print_ptr(va_arg(arg, unsigned long long), octet);
 	else if (c == 'd')
 		ft_print_nbr(va_arg(arg, int), octet);
 	else if (c == 'i')
@@ -30,16 +30,16 @@ void	len_print_arg(char c, va_list arg, int *octet)
 		ft_print_hexa(va_arg(arg, unsigned int), "0123456789abcdef", octet);
 	else if (c == 'X')
 		ft_print_hexa(va_arg(arg, unsigned int), "0123456789ABCDEF", octet);
-	// else if (c == '%')
-	// 	return (0);
+	else if (c == '%')
+		ft_print_char('%', octet);
 	// else
 	// 	return (0);
 }
 
 int	ft_printf(const char *entry, ...)
 {
-	int		i;
-	int		len;
+	size_t		i;
+	size_t		len;
 	va_list	args;
 
 	i = 0;
