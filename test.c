@@ -6,7 +6,7 @@
 /*   By: ozasahin <ozasahin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 18:47:08 by justo             #+#    #+#             */
-/*   Updated: 2023/12/06 14:31:01 by ozasahin         ###   ########.fr       */
+/*   Updated: 2023/12/06 14:36:12 by ozasahin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int main()
 {
 	char	*str = "-voici une chaine-";
-	char	chr = 'A';
+	char	chr = 'Z';
 	int		nb = 26;
 	int		unb = 445;
 	printf("\n===Mon printf===\n");
