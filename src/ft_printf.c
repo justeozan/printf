@@ -6,7 +6,7 @@
 /*   By: ozasahin <ozasahin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:08:29 by justo             #+#    #+#             */
-/*   Updated: 2023/12/06 14:42:29 by ozasahin         ###   ########.fr       */
+/*   Updated: 2023/12/06 15:10:55 by ozasahin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	len_print_arg(char c, va_list arg, int *octet)
 		ft_print_char(va_arg(arg, int), octet);
 	else if (c == 's')
 		ft_print_str(va_arg(arg, char *), octet);
-	// else if (c == 'p')
-	// 	ft_print_ptr();
+	else if (c == 'p')
+		ft_print_ptr(va_arg(arg, void *), octet);
 	else if (c == 'd')
 		ft_print_nbr(va_arg(arg, int), octet);
 	else if (c == 'i')
