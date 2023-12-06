@@ -6,17 +6,11 @@
 /*   By: ozasahin <ozasahin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:11:52 by justo             #+#    #+#             */
-/*   Updated: 2023/12/06 16:02:40 by ozasahin         ###   ########.fr       */
+/*   Updated: 2023/12/06 16:57:33 by ozasahin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-void	ft_print_char(int c, size_t *octet)
-{
-	write(1, &c, 1);
-	(*octet)++;
-}
 
 void	ft_print_str(char *s, size_t *octet)
 {
@@ -30,11 +24,11 @@ void	ft_print_str(char *s, size_t *octet)
 	}
 }
 
-void	ft_print_ptr(unsigned long long addr, size_t *octet) //-----------------------------
+void	ft_print_ptr(unsigned long long addr, size_t *octet)
 {
 	char	stack[17];
 	int		i;
-	
+
 	if (addr)
 	{
 		i = 0;
@@ -105,5 +99,5 @@ void	ft_print_hexa(unsigned int nb, char *base, size_t	*octet)
 {
 	if (nb > 15)
 		ft_print_hexa(nb / 16, base, octet);
-	ft_print_char(base[nb%16], octet);
+	ft_print_char(base[nb % 16], octet);
 }

@@ -6,7 +6,7 @@
 /*   By: ozasahin <ozasahin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 19:25:07 by justo             #+#    #+#             */
-/*   Updated: 2023/12/06 16:01:54 by ozasahin         ###   ########.fr       */
+/*   Updated: 2023/12/06 17:33:34 by ozasahin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 int		ft_printf(const char *entry, ...);
 void	len_print_arg(char c, va_list arg, size_t	*octet);
-
 void	ft_print_char(int c, size_t	*octet);
 void	ft_print_str(char *s, size_t *octet);
 void	ft_print_nbr(int nb, size_t *octet);
