@@ -6,7 +6,7 @@
 /*   By: ozasahin <ozasahin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 18:47:08 by justo             #+#    #+#             */
-/*   Updated: 2023/12/06 17:49:25 by ozasahin         ###   ########.fr       */
+/*   Updated: 2023/12/07 13:16:27 by ozasahin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ int	main()
 	value += printf("- %%%%		: %%\n");
 	value += printf("- last		: %c%s%%%d%i%u%x%X", 'S', "ft_plouf", 45, 50, 55, 666, 777);
 	printf("\n%ld\n", value);
+	
 	return (0);
 }
