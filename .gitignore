@@ -22,4 +22,4 @@
 *.exe
 
 # Test files
-./test.c
+./%test.c
