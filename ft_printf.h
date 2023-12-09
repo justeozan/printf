@@ -17,7 +17,7 @@
 # include <unistd.h>
 
 int		ft_printf(const char *entry, ...);
-void	len_print_arg(char c, va_list arg, size_t *octet);
+void	print_var(char c, va_list arg, size_t *octet);
 void	ft_print_char(int c, size_t	*octet);
 void	ft_print_str(char *s, size_t *octet);
 void	ft_print_nbr(int nb, size_t *octet);

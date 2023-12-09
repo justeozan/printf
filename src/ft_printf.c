@@ -18,7 +18,7 @@ void	ft_print_char(int c, size_t *octet)
 	(*octet)++;
 }
 
-void	len_print_arg(char c, va_list arg, size_t *octet)
+void	print_var(char c, va_list arg, size_t *octet)
 {
 	if (c == 'c')
 		ft_print_char(va_arg(arg, int), octet);
@@ -53,12 +53,13 @@ int	ft_printf(const char *entry, ...)
 	{
 		if (entry[i] == '%')
 		{
-			len_print_arg(entry[i + 1], args, &len);
+			print_var(entry[i + 1], args, &len);
 			i++;
 		}
 		else
 			ft_print_char(entry[i], &len);
 		i++;
 	}
+	va_end(args);
 	return (len);
 }
