@@ -31,28 +31,28 @@ void	ft_print_ptr(unsigned long long addr, size_t *octet)
 	char	stack[17];
 	int		i;
 
-	if (addr)
+	if (!addr)
 	{
-		i = 0;
-		while (i < 16)
-		{
-			stack[i] = "0123456789abcdef"[addr % 16];
-			i++;
-			addr /= 16;
-		}
-		stack[i] = '\0';
-		i = 15;
-		while (stack[i] == '0')
-			i--;
-		ft_print_str("0x", octet);
-		while (i >= 0)
-		{
-			ft_print_char(stack[i], octet);
-			i--;
-		}
-	}
-	else
 		ft_print_str("(nil)", octet);
+		return ;
+	}
+	i = 0;
+	while (i < 16)
+	{
+		stack[i] = "0123456789abcdef"[addr % 16];
+		i++;
+		addr /= 16;
+	}
+	stack[i] = '\0';
+	i = 15;
+	while (stack[i] == '0')
+		i--;
+	ft_print_str("0x", octet);
+	while (i >= 0)
+	{
+		ft_print_char(stack[i], octet);
+		i--;
+	}
 }
 
 void	ft_print_nbr(int nb, size_t *octet)

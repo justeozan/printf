@@ -57,9 +57,7 @@ int	ft_printf(const char *entry, ...)
 			i++;
 		}
 		else
-		{
 			ft_print_char(entry[i], &len);
-		}
 		i++;
 	}
 	return (len);

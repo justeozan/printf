@@ -10,21 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-#Variables
-
 NAME	=	libftprintf.a
-
-# INCLUDES	=	include
-SRCS		=	src/ft_printf.c src/ft_prints.c \		
-
+SRCS		=	src/ft_printf.c src/ft_prints.c
 OBJS		=	$(SRCS:.c=.o)
-
 CC		=	gcc
-
 CFLAGS		=	-Wall -Wextra -Werror
-
 RM			=	rm -f
-
 AR			=	ar rc
 
 %.o:	%.c ft_printf.h
@@ -34,13 +25,8 @@ $(NAME)	:	$(OBJS)
 			$(AR) $(NAME) $(OBJS)
 
 all:		$(NAME)
-
-#Commands
-
 clean:
 			$(RM) $(OBJS)
-
 fclean:		clean
 			$(RM) $(NAME)
-
 re:			fclean all
