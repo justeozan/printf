@@ -69,7 +69,7 @@ void	ft_print_nbr(int nb, size_t *octet)
 		ft_print_nbr(nb / 10, octet);
 		ft_print_nbr(nb % 10, octet);
 	}
-	else 
+	else
 		ft_print_char(nb + 48, octet);
 }
 
@@ -80,7 +80,7 @@ void	ft_print_unbr(unsigned int nb, size_t *octet)
 		ft_print_unbr(nb / 10, octet);
 		ft_print_unbr(nb % 10, octet);
 	}
-	else 
+	else
 		ft_print_char(nb + 48, octet);
 }
 
