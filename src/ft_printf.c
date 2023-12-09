@@ -18,25 +18,25 @@ void	ft_print_char(int c, size_t *octet)
 	(*octet)++;
 }
 
-void	print_var(char c, va_list arg, size_t *octet)
+void	print_var(char offset, va_list arg, size_t *octet)
 {
-	if (c == 'c')
+	if (offset == 'c')
 		ft_print_char(va_arg(arg, int), octet);
-	else if (c == 's')
+	else if (offset == 's')
 		ft_print_str(va_arg(arg, char *), octet);
-	else if (c == 'p')
+	else if (offset == 'p')
 		ft_print_ptr(va_arg(arg, unsigned long long), octet);
-	else if (c == 'd')
+	else if (offset == 'd')
 		ft_print_nbr(va_arg(arg, int), octet);
-	else if (c == 'i')
+	else if (offset == 'i')
 		ft_print_nbr(va_arg(arg, int), octet);
-	else if (c == 'u')
+	else if (offset == 'u')
 		ft_print_unbr(va_arg(arg, unsigned int), octet);
-	else if (c == 'x')
+	else if (offset == 'x')
 		ft_print_hexa(va_arg(arg, unsigned int), "0123456789abcdef", octet);
-	else if (c == 'X')
+	else if (offset == 'X')
 		ft_print_hexa(va_arg(arg, unsigned int), "0123456789ABCDEF", octet);
-	else if (c == '%')
+	else if (offset == '%')
 		ft_print_char('%', octet);
 }
 
