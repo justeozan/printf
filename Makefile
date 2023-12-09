@@ -14,10 +14,8 @@
 
 NAME	=	libftprintf.a
 
-
 # INCLUDES	=	include
-SRCS		=	src/ft_printf.c src/ft_prints.c \
-				
+SRCS		=	src/ft_printf.c src/ft_prints.c \		
 
 OBJS		=	$(SRCS:.c=.o)
 
@@ -28,8 +26,6 @@ CFLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -f
 
 AR			=	ar rc
-
-
 
 %.o:	%.c ft_printf.h
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
