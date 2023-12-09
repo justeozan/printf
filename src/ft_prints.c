@@ -17,6 +17,8 @@ void	ft_print_str(char *s, size_t *octet)
 	int	i;
 
 	i = 0;
+	if (!s)
+		s = "(null)";
 	while (s[i])
 	{
 		ft_print_char(s[i], octet);
@@ -56,28 +58,19 @@ void	ft_print_ptr(unsigned long long addr, size_t *octet)
 void	ft_print_nbr(int nb, size_t *octet)
 {
 	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		(*octet) += 11;
-	}
+		ft_print_str("-2147483648", octet);
 	else if (nb < 0)
 	{
-		nb = -nb;
-		write(1, "-", 1);
-		(*octet)++;
-		ft_print_nbr(nb, octet);
+		ft_print_char('-', octet);
+		ft_print_nbr(-nb, octet);
 	}
 	else if (nb >= 10)
 	{
 		ft_print_nbr(nb / 10, octet);
 		ft_print_nbr(nb % 10, octet);
 	}
-	else if (nb <= 9 && nb >= 0)
-	{
-		nb += 48;
-		write(1, &nb, 1);
-		(*octet)++;
-	}
+	else 
+		ft_print_char(nb + 48, octet);
 }
 
 void	ft_print_unbr(unsigned int nb, size_t *octet)
@@ -87,12 +80,8 @@ void	ft_print_unbr(unsigned int nb, size_t *octet)
 		ft_print_unbr(nb / 10, octet);
 		ft_print_unbr(nb % 10, octet);
 	}
-	else if (nb <= 9)
-	{
-		nb += 48;
-		write(1, &nb, 1);
-		(*octet)++;
-	}
+	else 
+		ft_print_char(nb + 48, octet);
 }
 
 void	ft_print_hexa(unsigned int nb, char *base, size_t	*octet)

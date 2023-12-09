@@ -13,13 +13,18 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-int	main()
+void	test_perso(void)
 {
 	size_t	value;
-	
+	char	*s;
+	int		n;
+
+	n = 55;
+	s = "ft_plouf";
 	printf("\n===Mon printf===\n");
 	value = ft_printf("- %%c		: %c\n", 'S');
 	value += ft_printf("- %%s		: %s\n", "Voici une chaine");
+	value += ft_printf("- %%s(err)	: %s\n", NULL);
 	value += ft_printf("- %%p		: %p\n", "ptr");
 	value += ft_printf("- %%p(err)	: %p\n", NULL);
 	value += ft_printf("- %%d		: %d\n", 26);
@@ -30,11 +35,22 @@ int	main()
 	value += ft_printf("- %%x		: %x\n", 445);
 	value += ft_printf("- %%X		: %X\n", 445);
 	value += ft_printf("- %%%%		: %%\n");
-	value += ft_printf("- last		: %c%s%%%d%i%u%x%X", 'S', "ft_plouf", 45, 50, 55, 666, 777);
+	value += ft_printf("-%c%s%%%d%i%u%x%X", s[0], s, n, n, n, n, n);
 	printf("\n%ld\n", value);
-	printf("\n===Reel printf===\n");
+}
+
+void	test_real(void)
+{
+	size_t	value;
+	char	*s;
+	int		n;
+
+	n = 55;
+	s = "ft_plouf";
+	printf("\n===Mon printf===\n");
 	value = printf("- %%c		: %c\n", 'S');
 	value += printf("- %%s		: %s\n", "Voici une chaine");
+	value += printf("- %%s(err)	: %s\n", NULL);
 	value += printf("- %%p		: %p\n", "ptr");
 	value += printf("- %%p(err)	: %p\n", NULL);
 	value += printf("- %%d		: %d\n", 26);
@@ -45,7 +61,13 @@ int	main()
 	value += printf("- %%x		: %x\n", 445);
 	value += printf("- %%X		: %X\n", 445);
 	value += printf("- %%%%		: %%\n");
-	value += printf("- last		: %c%s%%%d%i%u%x%X", 'S', "ft_plouf", 45, 50, 55, 666, 777);
+	value += printf("-%c%s%%%d%i%u%x%X", s[0], s, n, n, n, n, n);
 	printf("\n%ld\n", value);
+}
+
+int	main(void)
+{
+	test_perso();
+	test_real();
 	return (0);
 }
